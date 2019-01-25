@@ -48,6 +48,7 @@ Let's bring in our dataset.
 .. code:: python
 
     import pandas as pd
+    import plt.pyplot as plt
     from lifelines.datasets import load_dd
 
     data = load_dd()
@@ -455,12 +456,12 @@ Fitting to a Weibull model
 Another very popular model for survival data is the Weibull model. In contrast the the Kaplan Meier estimator, this model is a *parametric model*, meaning it has a functional form with parameters that we are fitting the data to. (The Kaplan Meier estimator has no parameters to fit to). Mathematically, the survival function looks like:
 
 
- ..math::  S(t) = \exp\left(-(\lambda t)^\rho\right),   \lambda >0, \rho > 0,
+ .. math::  S(t) = \exp\left(-(\lambda t)^\rho\right),   \lambda >0, \rho > 0,
 
 * A priori*, we do not know what :math:`\lambda` and :math:`\rho` are, but we use the data on hand to estimate these parameters. In fact, we actually model and estimate the hazard rate:
 
 
- ..math::  S(t) = -(\lambda t)^\rho,   \lambda >0, \rho > 0,
+ .. math::  S(t) = -(\lambda t)^\rho,   \lambda >0, \rho > 0,
 
 In lifelines, estimation is available using the ``WeibullFitter`` class:
 
